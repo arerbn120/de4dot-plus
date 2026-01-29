@@ -1,0 +1,28 @@
+﻿# Visual Studio / .NET
+.vs/
+*.user
+*.suo
+*.userosscache
+*.VC.db
+*.pdb
+*.opendb
+
+# Build output
+bin/
+obj/
+Debug/
+Release/
+publish/
+
+# NuGet & packages
+packages/
+*.nupkg
+
+# Rider / VS Code
+.vscode/
+.idea/
+
+# Logs, temp
+*.log
+*.tmp
+*~

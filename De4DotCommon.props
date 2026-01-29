@@ -1,0 +1,15 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Features>strict</Features>
+    <LangVersion>14</LangVersion>
+    <SignAssembly>true</SignAssembly>
+    <!-- Make sure the path is relative to this props file -->
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)de4dot.snk</AssemblyOriginatorKeyFile>
+    <Version>3.1.41592.3405</Version>
+    <Copyright>Copyright (C) 2011-2018 de4dot@gmail.com</Copyright>
+    <!-- Keep the repo-root default output folder; projects may override -->
+    <OutputPath>$(MSBuildThisFileDirectory)$(Configuration)\</OutputPath>
+    <DisableOutOfProcTaskHost>true</DisableOutOfProcTaskHost>
+    <DnlibVersion>4.5.0</DnlibVersion>
+  </PropertyGroup>
+</Project>

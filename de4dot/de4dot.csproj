@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\De4DotCommon.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net4.8.1</TargetFrameworks>
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputType>Exe</OutputType>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\de4dot.cui\de4dot.cui.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <LicenseFiles Include="$(MSBuildThisFileDirectory)\..\LICENSE.*" />
+    <LicenseFiles Include="$(MSBuildThisFileDirectory)\..\COPYING" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dnlib" Version="4.5.0" />
+    <PackageReference Include="System.Drawing.Common" Version="10.0.1" />
+  </ItemGroup>
+
+  <Target Name="CopyLicenseFiles_AfterBuild" AfterTargets="AfterBuild">
+    <Copy SourceFiles="@(LicenseFiles)" DestinationFolder="$(TargetDir)LICENSES" />
+  </Target>
+
+  <Target Name="CopyLicenseFiles_Publish" AfterTargets="Publish">
+    <Copy SourceFiles="@(LicenseFiles)" DestinationFolder="$(PublishDir)LICENSES" />
+  </Target>
+
+</Project>

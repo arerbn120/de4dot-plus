@@ -1,0 +1,33 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Solution-wide defaults for .NET Framework 4.8.1 projects -->
+  <PropertyGroup>
+    <Features>strict</Features>
+    <LangVersion>14</LangVersion>
+    <SignAssembly>true</SignAssembly>
+    <!-- Keep the key file next to this props file -->
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)de4dot.snk</AssemblyOriginatorKeyFile>
+    <Version>3.1.41592.3405</Version>
+    <Copyright>Copyright (C) 2011-2018 de4dot@gmail.com</Copyright>
+    <DisableOutOfProcTaskHost>true</DisableOutOfProcTaskHost>
+    <DnlibVersion>4.5.0</DnlibVersion>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <!-- Normalize solution Platform names to project-friendly Platform values.
+       Many of your projects only declare 'Any CPU' as a configuration; when the
+       solution platform is 'x64'/'x86'/'ARM64' it will fail to match — this
+       maps those solution-level values back to 'AnyCPU' so MSBuild finds a
+       matching project configuration. -->
+  <PropertyGroup>
+    <NormalizedProjectPlatform Condition="'$(Platform)' == 'x64'">AnyCPU</NormalizedProjectPlatform>
+    <NormalizedProjectPlatform Condition="'$(Platform)' == 'x86'">AnyCPU</NormalizedProjectPlatform>
+    <NormalizedProjectPlatform Condition="'$(Platform)' == 'ARM64'">AnyCPU</NormalizedProjectPlatform>
+    <!-- Apply mapping only when normalized value exists -->
+    <Platform Condition="'$(NormalizedProjectPlatform)' != ''">$(NormalizedProjectPlatform)</Platform>
+  </PropertyGroup>
+
+  <!-- Default OutputPath if a project doesn't set one -->
+  <PropertyGroup>
+    <OutputPath Condition="'$(OutputPath)' == ''">$(MSBuildThisFileDirectory)bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+</Project>

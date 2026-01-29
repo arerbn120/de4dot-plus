@@ -1,0 +1,31 @@
+﻿# Visual Studio / .NET
+.vs/
+*.user
+*.suo
+*.cache
+*.ilk
+*.pdb
+*.opendb
+*.VC.db
+
+# Build folders
+bin/
+obj/
+Debug/
+Release/
+
+# NuGet
+packages/
+*.nupkg
+
+# Rider, ReSharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
+
+# Rider / VS Code
+.vscode/
+
+# Others
+*.log
+*.tmp
